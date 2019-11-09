@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JavaScript Quiz</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="counter"></div>
+    <div id="container">
+        <div id="start">Start Quiz!</div>
+        <div id="quiz" style="display: none">
+            <div id="question"></div>
+            <div id="qImg"></div>
+            <div id="choices">
+                <ol>
+                    <li class="choice" id="A" onclick="checkAnswer('A')"></li>
+                    <li class="choice" id="B" onclick="checkAnswer('B')"></li>
+                    <li class="choice" id="C" onclick="checkAnswer('C')"></li>
+                </ol>
+                
+            </div>
+            <div id="timer">
+                <div id="timeGauge"></div>
+            </div>
+        </div>
+        <div id="scoreContainer" style="display: none"></div>
+    </div>
+    <!-- <script src="script.js"></script> -->
+  <!-- <script src="questions.js"></script> -->
+  <script src="script.js"></script>
+</body>
+
+</html>
