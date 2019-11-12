@@ -1,6 +1,6 @@
 # Web-APIs-Homework-Code-Quiz
 
-<img src="images/quizscreenshot.jpeg" alt="mypage"/>
+<img src="images/QuizScreenshot.jpeg" alt="mypage"/>
 
 This application was created using HTML and JavaScript.
 
