@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">View High Scores</a>
+        <div id="counter"></div>
+      </nav>
+
+         
+      <script>
+            function getParams(){
+                var idx = document.URL.indexOf('index.html');
+                var params = new Array();
+                if (idx != -1) {
+                    var pairs = document.URL.substring(idx+1, document.URL.length).split('&');
+                    for (var i=0; i<pairs.length; i++){
+                        nameVal = pairs[i].split('=');
+                        params[nameVal[0]] = nameVal[1];
+                    }
+                }
+                return params;
+            }
+            params = getParams();
+            firstname = unescape(params["firstname"]);
+            lastname = unescape(params["lastname"]);
+            age = unescape(params["age"]);
+            document.write("firstname = " + firstname + "<br>");
+            document.write("lastname = " + lastname + "<br>");
+            document.write("age = " + age + "<br>");
+        </script>
+        
+
+    <script src="script.js"></script>
+</body>
+</html>
