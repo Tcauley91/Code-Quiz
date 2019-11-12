@@ -18,5 +18,17 @@ let questions = [
       choiceB : "Wrong",
       choiceC : "Correct",
       correct : "C"
-  }
-];
+  },{
+    question : "What does JS stand for?",
+      choiceA : "Wrong",
+      choiceB : "Wrong",
+      choiceC : "Correct",
+      correct : "C"
+  },{
+    question : "What does JS stand for?",
+      choiceA : "Wrong",
+      choiceB : "Wrong",
+      choiceC : "Correct",
+      correct : "C"
+  }];
+  
