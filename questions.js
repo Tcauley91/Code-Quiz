@@ -20,4 +20,3 @@ let questions = [
       correct : "C"
   }
 ];
-  

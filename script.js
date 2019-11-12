@@ -9,7 +9,10 @@ const counter = document.getElementById("counter");
 const timeGauge = document.getElementById("timeGauge");
 const progress = document.getElementById("progress");
 const scoreDiv = document.getElementById("scoreContainer");
-
+const list = document.getElementById("score-list");
+const scoreNamesSpan = document.getElementById("score-names");
+const initialForm = document.getElementById("initial-form");
+const initialInput = document.getElementById("initial-text");
 
 
 // create some variables
@@ -60,7 +63,6 @@ function renderCounter(){
         timeGauge.style.width = count * gaugeUnit + "px";
         count--
     }else{
-        // count=75;
         // change progress color to red
         answerIsWrong();
         if(runningQuestion < lastQuestion.count){
@@ -68,7 +70,7 @@ function renderCounter(){
             renderQuestion();
         }else{
             // end the quiz and show the score
-            clearInterval(TIMER);
+            clearInterval(count=0);
             scoreRender();
         }
     }
@@ -88,13 +90,13 @@ function checkAnswer(answer){
         answerIsWrong();
         count = count-15;
     }
-    
+
     if(runningQuestion < lastQuestion){
         runningQuestion++;
         renderQuestion();
     }else{
         // end the quiz and show the score
-        clearInterval(TIMER);
+        clearInterval(count=0);
         scoreRender();
     }
 }
@@ -116,6 +118,61 @@ function scoreRender(){
     // calculate the amount of question percent answered by the user
     const scorePerCent = Math.round(100 * score/questions.length);
     
+    scoreDiv.innerHTML+="<h1>All done!</h1>";
    
-    scoreDiv.innerHTML += "<p>"+ scorePerCent +"%</p>";
+    scoreDiv.innerHTML += "<p2>Your score is "+ scorePerCent +"%</p2>";
 }
+
+    var initials = [];
+
+    init();
+
+    function renderScores() {
+
+        list.innerHTML = "";
+        scoreNamesSpan.textContent = initials.length;
+
+        // render new list item for each player
+
+        for (var i = 0; i < initials.length; i++) {
+            var initials = initials[i];
+
+            var li = document.createElement("li");
+            li.textContent = list;
+            li.serAttribute("data-index", i);
+
+            }
+    }
+
+        function init(){
+    
+
+            // get stored scores from local storage
+            // parsing the Json string to an object
+
+            var storedList = JSON.parse(localStorage.getItem("playerlist"));
+            if (storedList !==null) {
+                initials = storedList;
+            }
+
+            renderScores();
+        }
+
+        function storeScores(){
+            localStorage.setItem("Initials", JSON.stringify(initials));
+        }
+
+        initialForm.addEvemtListener("submit", function(event) {
+            event.preventDefault();
+
+            var initialText = initialInput.value.trim();
+
+            if (initialText === ""){
+            return;
+        }
+
+        initials.push(initialText);
+        storeScores();
+        renderScores();
+    });
+
